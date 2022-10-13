@@ -1,0 +1,51 @@
+Description: replace ava by tape in test
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2020-05-05
+
+--- a/test.js
++++ b/test.js
+@@ -1,29 +1,32 @@
+-import test from 'ava';
+-import dateTime from '.';
++const test = require('tape');
++const dateTime = require('.');
+ 
+ test('main', t => {
+-	t.regex(dateTime(), /^[\d-]+ [\d:]+$/);
+-	t.regex(dateTime({date: new Date()}), /^[\d-]+ [\d:]+$/);
++	t.ok(dateTime().match(/^[\d-]+ [\d:]+$/));
++	t.ok(dateTime({date: new Date()}).match(/^[\d-]+ [\d:]+$/));
++    t.end();
+ });
+ 
+ test('showTimeZone option', t => {
+-	t.regex(dateTime({showTimeZone: true}), /^[\d-]+ [\d:]+ UTC[-+][\d:]+$/);
++	t.ok(dateTime({showTimeZone: true}).match(/^[\d-]+ [\d:]+ UTC[-+][\d:]+$/));
+ 
+-	t.regex(dateTime({
++	t.ok(dateTime({
+ 		local: false,
+ 		showTimeZone: true
+-	}), /^[\d-]+ [\d:]+ UTC$/);
++	}).match(/^[\d-]+ [\d:]+ UTC$/));
++    t.end();
+ });
+ 
+ test('showMilliseconds option', t => {
+-	t.regex(dateTime({
++	t.ok(dateTime({
+ 		local: false,
+ 		showMilliseconds: true
+-	}), /^[\d-]+ [\d:]+ \d+ms$/);
++	}).match(/^[\d-]+ [\d:]+ \d+ms$/));
+ 
+-	t.regex(dateTime({
++	t.ok(dateTime({
+ 		local: false,
+ 		showMilliseconds: true,
+ 		showTimeZone: true
+-	}), /^[\d-]+ [\d:]+ \d+ms UTC$/);
++	}).match(/^[\d-]+ [\d:]+ \d+ms UTC$/));
++    t.end();
+ });

@@ -1,0 +1,26 @@
+Source: node-date-time
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Pirate Praveen <praveen@debian.org>
+Section: javascript
+Testsuite: autopkgtest-pkg-nodejs
+Priority: optional
+Build-Depends: debhelper-compat (= 13)
+ , node-tape <!nocheck>
+ , node-time-zone <!nocheck>
+ , dh-sequence-nodejs
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-date-time
+Vcs-Git: https://salsa.debian.org/js-team/node-date-time.git
+Homepage: https://github.com/sindresorhus/date-time
+Rules-Requires-Root: no
+
+Package: node-date-time
+Architecture: all
+Depends: ${misc:Depends}
+ , node-time-zone
+ , nodejs
+Description: Pretty datetime like 2014-01-09 06:46:01
+ This module can print date and time in an easy to understand format. This also
+ support time zones.
+ .
+ Node.js is an event-based server-side JavaScript engine.
