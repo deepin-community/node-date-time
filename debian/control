@@ -18,7 +18,7 @@ Package: node-date-time
 Architecture: all
 Depends: ${misc:Depends}
  , node-time-zone
- , nodejs
+ , nodejs:any
 Description: Pretty datetime like 2014-01-09 06:46:01
  This module can print date and time in an easy to understand format. This also
  support time zones.
