@@ -1,3 +1,10 @@
+node-date-time (3.1.0-3) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Apply multi-arch hints. + node-date-time: Add :any qualifier for nodejs dependency.
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Mon, 21 Nov 2022 12:15:08 +0000
+
 node-date-time (3.1.0-2) unstable; urgency=medium
 
   * Team upload
